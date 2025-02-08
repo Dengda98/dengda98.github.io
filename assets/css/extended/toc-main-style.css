@@ -1,0 +1,89 @@
+:root {
+    --nav-width: 1380px;
+    --article-width: 650px;
+    --toc-width: 300px;
+    --gap: 16px;  /* 间距 */
+}
+
+.active {
+    font-size: 110%;
+    font-weight: bold; /* 这里改为 bold 或者数值，比如 700 */
+    color: var(--secondary);
+}
+
+/* 目录容器样式 */
+.toc-container {
+    position: fixed; /* 固定位置在侧边 */
+    top: 90px;
+    right: 0;
+    width: 25%;
+    max-height: 50vh; /* 避免超过屏幕高度 */
+    overflow-y: auto; /* 允许垂直滚动 */
+    border: 1px solid var(--border);
+    background: var(--entry);
+    border-radius: var(--radius);
+    padding: 0.4em;
+    z-index: 0; 
+}
+
+/* 目录内容样式 */
+.toc {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.toc details summary {
+    cursor: pointer; /* 鼠标指针样式 */
+    margin-inline-start: 10px;
+    padding: 12px 0;
+}
+
+.toc details[open] summary {
+    font-weight: 500;
+}
+
+.toc ul {
+    list-style-type: circle;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.toc .inner {
+    margin: 0;
+    padding: 0 15px 15px 20px;
+    font-size: 16px;
+    max-height: 80vh; /* 保持合理高度 */
+    overflow-y: hidden;
+}
+
+/* 列表样式 */
+.toc li {
+    list-style: none;
+    font-size: 0.95rem;
+    padding-bottom: 5px;
+}
+
+.toc li a:hover {
+    color: var(--secondary);
+}
+
+/* 目录显示时调整main元素样式 */
+.custom-style {
+    margin-left: 5%;
+    width: 70%;
+}
+
+/* 小于或等于1024px时禁用目录的样式 */
+@media (max-width: 1024px) {
+    .toc-container {
+        position: static; /* 设置position属性失效 */
+        width: 100%;
+        max-height: 90vh;
+    }
+
+    .custom-style {
+        margin: 0 auto;
+        width: 100%; /* main元素恢复正常宽度 */
+    }
+}

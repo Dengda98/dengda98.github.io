@@ -1,0 +1,68 @@
+<div id="comments-utteranc"></div>
+<script type="text/javascript">
+    function getCurrentTheme() {
+        return document.body.classList.contains('dark') ? 'dark' : 'light';
+    }
+
+    function loadUtterances(darkMode=false) {
+        const commentContainer = document.getElementById("comments-utteranc");
+        if (commentContainer !== null) {
+            // 清空评论区的内容
+            commentContainer.innerHTML = '';
+
+            // 如果已有 Utterances 脚本，先移除它
+            const existingScript = document.getElementById("utteranc");
+            if (existingScript) {
+                existingScript.remove();
+            }
+
+            // 创建新的脚本
+            const commentScript = document.createElement("script");
+            commentScript.setAttribute("id", "utteranc");
+            commentScript.setAttribute("src", "https://utteranc.es/client.js");
+            commentScript.setAttribute("data-repo", "Dengda98/blog_comments");
+            commentScript.setAttribute("data-theme", darkMode ? "github-dark" : "github-light");
+            commentScript.setAttribute("data-issue-term", "title");
+            commentScript.setAttribute("crossorigin", "anonymous");
+            commentScript.setAttribute("async", "true");
+            commentContainer.appendChild(commentScript);
+        } else {
+            console.error("Comment container not found!");
+        }
+    }
+
+    // 初始化时加载评论
+    let currentTheme = getCurrentTheme();
+    loadUtterances(currentTheme === 'dark');
+
+    // 监听主题变化
+    const themeObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                const isDarkMode = getCurrentTheme() === 'dark';
+                console.log(`Theme changed: ${isDarkMode ? 'dark' : 'light'}`);
+                loadUtterances(isDarkMode);
+            }
+        });
+    });
+
+    // 开始观察 body 元素
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+</script>
+
+
+
+<!-- github comments -->
+<!-- <div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">评论</span>
+        <br />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://utteranc.es/client.js" repo="Dengda98/blog_comments" issue-term="title" theme="github-light"
+        crossorigin="anonymous" async>
+        </script>
+</div> -->
