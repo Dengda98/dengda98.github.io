@@ -57,7 +57,7 @@ jobs:
           TZ: America/Los_Angeles
         # 加-D编译草稿
         run: |
-          hugo -D  \  
+          hugo -D \
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
