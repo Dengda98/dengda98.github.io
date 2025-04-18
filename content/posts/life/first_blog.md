@@ -1,7 +1,7 @@
 ---
 title: "利用Hugo+PaperMod+Github Pages搭建个人博客"
 date: 2025-02-12T10:35:08+08:00
-lastmod: 2025-02-12T10:35:08+08:00
+lastmod: 2025-04-18T10:35:08+08:00
 author: "Zhu Dengda"
 categories: []
 tags: ['Blog']
@@ -11,7 +11,7 @@ description: " " # 文章描述，与搜索优化相关
 summary: " " # 文章简单描述，会展示在主页
 weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
 slug: ""
-draft: true # 是否为草稿
+draft: false # 是否为草稿
 comments: true
 showToc: true # 显示目录
 TocOpen: true # 自动展开目录
@@ -100,6 +100,11 @@ sudo snap install hugo
 hugo version
 # 我的输出：hugo v0.143.1-0270364a347b2ece97e0321782b21904db515ecc+extended linux/amd64 BuildDate=2025-02-04T08:57:38Z VendorInfo=snap:0.143.1
 ```
+
+--------------------------
+(2025.04.18更新)  
+不建议使用snap安装hugo，snap会自动更新hugo版本，导致你本地编译调试出错。建议安装预编译好的[hugo](https://gohugo.io/installation/linux/#prebuilt-binaries)版本，能够固定版本。
+
 
 ## 新建站点
 在本地合适目录下运行以下命令：
