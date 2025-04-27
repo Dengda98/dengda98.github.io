@@ -1,7 +1,7 @@
 ---
-title: "ReadTheDocs多语言文档构建"
+title: "ReadTheDocs+Sphinx多语言文档构建"
 date: 2025-04-22T21:55:44+08:00
-lastmod: 2025-04-22T21:55:44+08:00
+lastmod: 2025-04-27T21:55:44+08:00
 author: "Zhu Dengda"
 categories: []
 tags: ["RTD"]
@@ -32,3 +32,8 @@ https://docs.readthedocs.com/platform/stable/guides/manage-translations-sphinx.h
 https://zhuanlan.zhihu.com/p/427843476
 
 https://www.cnblogs.com/oaks/p/12693166.html
+
+sphinx官方文档：
+https://www.sphinx-doc.org/en/master/usage/advanced/intl.html
+
+(如果按RTD的叙述，加上`gettext_uuid=True`，生成的`.pot`文件中会有数字代码以跟踪版本，但这样会额外增加git提交信息)
