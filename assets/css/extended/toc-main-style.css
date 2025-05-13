@@ -1,6 +1,7 @@
 :root {
     --nav-width: 1380px;
-    --article-width: 650px;
+    --main-width: 1380px; /* https://github.com/adityatelange/hugo-PaperMod/discussions/442 */
+    --article-width: 1050px; 
     --toc-width: 300px;
     --gap: 16px;  /* 间距 */
 }
