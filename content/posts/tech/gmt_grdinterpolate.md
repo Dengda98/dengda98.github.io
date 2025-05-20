@@ -1,7 +1,7 @@
 ---
 title: "使用GMT的grdinterpolate模块获得地震成像的任意纵切面结果"
 date: 2025-03-11T22:54:03+08:00
-lastmod: 2025-03-11T22:54:03+08:00
+lastmod: 2025-05-20T22:54:03+08:00
 author: "Zhu Dengda"
 categories: []
 tags: ["GMT"]
@@ -27,6 +27,12 @@ cover:
     alt: ""
     relative: false
 ---
+
+--------------
+（更新于2025-05-20）  
+`grdinterpolate`模块属于还在发展中的模块，我修复了`-E`单位问题以及`-S`不能和`-T`使用的问题，已给官方提交了PR（相关PR已合并），可能在下个版本(6.6?)会推出。如果现在想使用`grdinterpolate`模块这些功能，请下载[dev版本](https://github.com/GenericMappingTools/gmt)从源码编译使用，编译教程详见[GMT中文文档](https://docs.gmt-china.org/latest/install/build-source-unix/)。
+
+------------
 
 地震成像结果往往是三维空间（经度、纬度、深度）中的单/多变量文件（Vp, Vs），而gmt中大多数模块都是处理二维网格。为了获得任意纵切面的结果，目前常做的处理是在定义了水平测线后，**不同深度层逐一插值处理**，即逐层使用`grdtrack`模块进行插值，最后拼成一个二维网格。
 
