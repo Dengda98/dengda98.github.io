@@ -1,0 +1,3 @@
+{{ $path := printf "%s" (.Get "file") }}
+{{ $lang := .Get "lang" }}
+{{ highlight (readFile $path) $lang }}
