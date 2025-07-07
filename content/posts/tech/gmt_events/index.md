@@ -1,7 +1,7 @@
 ---
-title: "GMT movie 模块绘制动图示例"
-date: 2025-06-30T14:30:54+08:00
-lastmod: 2025-06-30T14:30:54+08:00
+title: "GMT events 模块绘制动图示例"
+date: 2025-07-07T11:21:35+08:00
+lastmod: 2025-07-07T11:21:35+08:00
 author: "Zhu Dengda"
 categories: []
 tags: ["GMT"]
@@ -28,12 +28,11 @@ cover:
     relative: false
 ---
 
-以下内容用于 [GMT movie 中文文档](https://docs.gmt-china.org/latest/module/movie/) 的外部链接。
+以下内容用于 [GMT events 中文文档](https://docs.gmt-china.org/latest/module/events/) 的外部链接。
 
-{{<code_from_file file="content/posts/tech/gmt_movie/movie_ex01.sh" lang="bash" >}}
+{{<code_from_file file="content/posts/tech/gmt_events/WED-A_Vid_1.sh" lang="bash" >}}
 
-![](anim01.gif)
+<video width="100%" controls>
+  <source src="WED-A_Vid_1.mp4" type="video/mp4">
+</video>
 
-{{<code_from_file file="content/posts/tech/gmt_movie/movie_ex02.sh" lang="bash" >}}
-
-![](globe.gif)
