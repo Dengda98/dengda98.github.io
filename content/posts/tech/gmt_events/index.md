@@ -32,6 +32,8 @@ cover:
 
 {{<code_from_file file="content/posts/tech/gmt_events/WED-A_Vid_1.sh" lang="bash" >}}
 
+![](WED-A_Vid_1.png)
+
 <video width="100%" controls>
   <source src="WED-A_Vid_1.mp4" type="video/mp4">
 </video>
