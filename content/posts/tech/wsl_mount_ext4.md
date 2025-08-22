@@ -1,7 +1,7 @@
 ---
 title: "在Windows系统中使用WSL2挂载ext4文件系统(Linux)的外接硬盘"
 date: 2025-04-02T14:58:20+08:00
-lastmod: 2025-04-02T14:58:20+08:00
+lastmod: 2025-08-23T14:58:20+08:00
 author: "Zhu Dengda"
 categories: []
 tags: ["WSL2"]
@@ -32,3 +32,9 @@ cover:
 
 + 非外接硬盘，WSL2可直接支持，详见[链接](https://learn.microsoft.com/en-us/windows/wsl/wsl2-mount-disk)  
 + 若是使用usb的外接硬盘，WSL2官方提供的[方法](https://learn.microsoft.com/en-us/windows/wsl/connect-usb)————使用usbipd工具还不够，需要重新编译构建一个WSL2版本，其中参数选择支持USB大容量硬盘，详见[视频](https://www.youtube.com/watch?v=iyBfQXmyH4o)
+
+挂载时给予用户权限：
+
+``` bash
+sudo mount -o uid=1000,gid=1000,fmask=113,dmask=002 /dev/sdd1 mount_dir
+```
