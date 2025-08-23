@@ -38,3 +38,9 @@ cover:
 ``` bash
 sudo mount -o uid=1000,gid=1000,fmask=113,dmask=002 /dev/sdd1 mount_dir
 ```
+
+如果硬盘是NTFS文件系统，则WSL2可直接mount，不需要usbipd工具。例如以下挂载 E 盘（在windows文件管理器中显示），并分配用户权限
+
+``` bash
+sudo mount -o uid=1000,gid=1000,fmask=113,dmask=002 -t drvfs E: mount_dir
+```
