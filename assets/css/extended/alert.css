@@ -1,0 +1,75 @@
+/* 基础的警告框样式 */
+.alert {
+    padding: 20px;
+    border-radius: 10px;
+    /* 圆角效果 */
+    margin: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 添加阴影 */
+    transition: all 0.3s ease;
+    /* 添加过渡效果 */
+}
+
+.alert:hover {
+    transform: translateY(-5px);
+    /* 鼠标悬停时的轻微上浮效果 */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* 悬停时的阴影效果 */
+}
+
+/* 警告类型 - Yellow */
+.alert-warning {
+    background: linear-gradient(135deg, #ffcc00, #ff9900);
+    /* 渐变背景 */
+    border: 1px solid #ff6600;
+    /* 较深的边框颜色 */
+    color: #000000;
+}
+
+.alert-warning strong {
+    color: #000000;
+    /* 强调标题文字的颜色 */
+}
+
+/* 成功类型 - Green */
+.alert-success {
+    background: linear-gradient(135deg, #66bb6a, #388e3c);
+    /* 渐变背景 */
+    border: 1px solid #2c6e34;
+    /* 深绿色边框 */
+    color: #ffffff;
+}
+
+.alert-success strong {
+    color: #f1f8f3;
+    /* 强调标题文字的颜色 */
+}
+
+/* 信息类型 - Blue */
+.alert-info {
+    background: linear-gradient(135deg, #29b6f6, #0288d1);
+    /* 渐变背景 */
+    border: 1px solid #0277bd;
+    /* 深蓝色边框 */
+    color: #ffffff;
+}
+
+.alert-info strong {
+    color: #e1f5fe;
+    /* 强调标题文字的颜色 */
+}
+
+/* 注意事项类型 - Blue */
+.alert-note {
+    background: linear-gradient(135deg, #80deea, #26c6da);
+    /* 蓝色渐变背景 */
+    border: 1px solid #00acc1;
+    /* 较深蓝色边框 */
+    color: #004d40;
+    /* 深蓝色文字 */
+}
+
+.alert-note strong {
+    color: #003d33;
+    /* 强调标题文字的颜色 */
+}
