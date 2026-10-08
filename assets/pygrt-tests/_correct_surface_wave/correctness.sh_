@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# 计算结果体积太大，不适合挂在github上
+
+set -euo pipefail
+
+echo "Compute dispersion"
+grt eigenv -M../milrow -SR -F0/1/0.01 -N -Cphase_milrow_R.nc
+grt eigenv -M../thin1  -SR -F0/100/0.1 -N -Cphase_thin1_R.nc
+grt eigenv -M../seafloor2 -SR -F0/3/0.01 -N -Cphase_seafloor2_R.nc
+
+grt eigenv -M../milrow -SL -F0/1/0.01 -N -Cphase_milrow_L.nc
+grt eigenv -M../thin1  -SL -F0/100/0.1 -N -Cphase_thin1_L.nc
+grt eigenv -M../seafloor2 -SL -F0/3/0.01 -N -Cphase_seafloor2_L.nc
+
+echo "Compute eigenfunctions"
+grt eigenfn -Cphase_milrow_R.nc -F1 -N0/10 -Z0/50/0.1 -Oegn_milrow_R.nc
+grt eigenfn -Cphase_thin1_R.nc -F50 -N0/10 -Z0/0.06/1e-4 -Oegn_thin1_R.nc
+grt eigenfn -Cphase_seafloor2_R.nc -F3 -N0/10 -Z0/30/0.1 -Oegn_seafloor2_R.nc
+
+grt eigenfn -Cphase_milrow_L.nc -F1 -N0/10 -Z0/50/0.1 -Oegn_milrow_L.nc
+grt eigenfn -Cphase_thin1_L.nc -F50 -N0/10 -Z0/0.06/1e-4 -Oegn_thin1_L.nc
+grt eigenfn -Cphase_seafloor2_L.nc -F3 -N0/10 -Z0/30/0.1 -Oegn_seafloor2_L.nc
+
+echo "Compute group velocity"
+grt eigenfn -Cphase_milrow_R.nc -Ugroup_milrow_R.nc -N
+grt eigenfn -Cphase_thin1_R.nc -Ugroup_thin1_R.nc -N
+grt eigenfn -Cphase_seafloor2_R.nc -Ugroup_seafloor2_R.nc -N
+
+grt eigenfn -Cphase_milrow_L.nc -Ugroup_milrow_L.nc -N
+grt eigenfn -Cphase_thin1_L.nc -Ugroup_thin1_L.nc -N
+grt eigenfn -Cphase_seafloor2_L.nc -Ugroup_seafloor2_L.nc -N
+
+echo "Compute energy integral"
+grt eigenfn -Cphase_milrow_R.nc -Kxegy_milrow_R.nc -N
+grt eigenfn -Cphase_thin1_R.nc -K+xegy_thin1_R.nc -N
+grt eigenfn -Cphase_seafloor2_R.nc -K+xegy_seafloor2_R.nc -N
+
+grt eigenfn -Cphase_milrow_L.nc -K+xegy_milrow_L.nc -N
+grt eigenfn -Cphase_thin1_L.nc -K+xegy_thin1_L.nc -N
+grt eigenfn -Cphase_seafloor2_L.nc -K+xegy_seafloor2_L.nc -N
+
+echo "Compute sensitivity"
+grt eigenfn -Cphase_milrow_R.nc -K+ccsens_milrow_R.nc+uusens_milrow_R.nc+z0.5 -N
+grt eigenfn -Cphase_thin1_R.nc -K+ccsens_thin1_R.nc+uusens_thin1_R.nc+z1e-3 -N
+grt eigenfn -Cphase_seafloor2_R.nc -K+ccsens_seafloor2_R.nc+uusens_seafloor2_R.nc+z0.5 -N
+
+grt eigenfn -Cphase_milrow_L.nc -K+ccsens_milrow_L.nc+uusens_milrow_L.nc+z0.5 -N
+grt eigenfn -Cphase_thin1_L.nc -K+ccsens_thin1_L.nc+uusens_thin1_L.nc+z1e-3 -N
+grt eigenfn -Cphase_seafloor2_L.nc -K+ccsens_seafloor2_L.nc+uusens_seafloor2_L.nc+z0.5 -N
+
+
+rm *.nc
