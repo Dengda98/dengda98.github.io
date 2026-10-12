@@ -24,13 +24,13 @@ grt static syn -S1e20 -e -T1/-2/-5/0.5/3/1.2 -Gstgrn.nc -Ostsyn_mt.nc
 grt static syn -S1e20 -e -T1/-2/-5/0.5/3/1.2 -N -Gstgrn.nc -Ostsyn_mt_ZNE.nc
 
 # strain, stress, rotation
-grt static strain stsyn_dc.nc
-grt static stress stsyn_dc.nc
-grt static rotation stsyn_dc.nc
+grt static strain -Gstsyn_dc.nc
+grt static stress -Gstsyn_dc.nc
+grt static rotation -Gstsyn_dc.nc
 
-grt static strain stsyn_mt_ZNE.nc
-grt static stress stsyn_mt_ZNE.nc
-grt static rotation stsyn_mt_ZNE.nc
+grt static strain -Gstsyn_mt_ZNE.nc
+grt static stress -Gstsyn_mt_ZNE.nc
+grt static rotation -Gstsyn_mt_ZNE.nc
 
 
 
